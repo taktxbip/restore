@@ -1,0 +1,17 @@
+.error-indicator {
+	display: block;
+	text-align: center;
+	font-family: sans-serif;
+}
+
+
+.error-indicator p.small {
+	font-size: 12px;
+	margin-top: 10px;
+	color: #999;
+}
+
+
+.error-indicator h2 {
+	margin-bottom: 20px;
+}
