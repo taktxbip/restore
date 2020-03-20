@@ -2,43 +2,54 @@ import React, { Component } from "react";
 import BookListItem from "../book-list-item";
 import { withBookstoreService } from "../hoc";
 import { connect } from "react-redux";
-import { booksLoaded } from "../../actions";
-import {compose } from '../../utils';
+import { fetchBooks } from "../../actions";
+import { compose } from "../../utils";
+import Spinner from "../spinner";
+import ErrorIndicator from "../error-indicator";
+
 import "./book-list.css";
 
-class BookList extends Component {
-  componentDidMount() {
-    // Receive Data
-    const { bookstoreService } = this.props;
-    const data = bookstoreService.getBooks();
-    console.log(data);
+const BookList = ({ books }) => {
+  return (
+    <ul className="book-list">
+      {books.map(book => {
+        return (
+          <li key={book.id}>
+            <BookListItem book={book} />
+          </li>
+        );
+      })}
+    </ul>
+  );
+};
 
-    this.props.booksLoaded(data);
+class BookListContainer extends Component {
+  componentDidMount() {
+    this.props.fetchBooks();
   }
 
   render() {
-    const { books } = this.props;
-    return (
-      <ul className="book-list">
-        {books.map(book => {
-          return (
-            <li key={book.id}>
-              <BookListItem book={book} />
-            </li>
-          );
-        })}
-      </ul>
-    );
+    const { books, loading, error } = this.props;
+
+    if (loading) return <Spinner />;
+    if (error) return <ErrorIndicator />;
+
+    return <BookList books={books} />;
   }
 }
 
-const mapStateToProps = ({ books }) => {
-  return { books };
+const mapStateToProps = ({ books, loading, error }) => {
+  return { books, loading, error };
 };
 
-
+const mapDispatchToProps = (dispatch, ownProps) => {
+  const { bookstoreService } = ownProps;
+  return {
+    fetchBooks: fetchBooks(bookstoreService, dispatch)
+  };
+};
 
 export default compose(
-	withBookstoreService(),
-	connect(mapStateToProps, { booksLoaded })
-)(BookList);
+  withBookstoreService(),
+  connect(mapStateToProps, mapDispatchToProps)
+)(BookListContainer);

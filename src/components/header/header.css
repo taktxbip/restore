@@ -31,7 +31,7 @@
 
 .navigation ul li a:hover {
 	cursor: pointer;
-	color: tomato;
+	color: #0056b3;
 }
 
 
@@ -39,6 +39,13 @@
 	font: 700 normal 24px / 1 'Playfair Display';
 	color: #222;
 	width: 150px;
+	color: #222;
+	transition: .2s ease-in-out;
+}
+
+.header-logo:hover {
+	cursor: pointer;
+	text-decoration: none;
 }
 
 .header-cart {
@@ -76,5 +83,5 @@
 .header-cart:hover .fa,
 .header-cart:hover .cart-counter,
 .header-cart:hover .cart-label {
-	color: tomato;
+	color: #0056b3;
 }
