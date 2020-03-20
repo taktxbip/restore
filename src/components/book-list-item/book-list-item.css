@@ -1,0 +1,19 @@
+.book-list-item {
+	padding: 20px 0;
+	display: flex;
+}
+
+.book-list-item-descr {
+	margin-left: 30px;
+}
+
+.book-list-item-descr .author {
+	display: block;
+	margin-bottom: 20px;
+}
+
+.book-list-item-descr .price {
+	display: block;
+	font: bold normal 36px / 1 sans-serif;
+	margin-bottom: 10px;
+}

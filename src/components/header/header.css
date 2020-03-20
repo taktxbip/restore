@@ -1,0 +1,80 @@
+.header {
+	padding: 20px 40px;
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid #f0f0f0;
+}
+
+.navigation {
+	width: 100%;
+	text-align: center;
+}
+
+.navigation ul {
+	list-style: none;
+	margin: 0;
+}
+
+.navigation ul li {
+	display: inline-block;
+	margin: 0 20px;
+}
+
+
+.navigation ul li a {
+	text-decoration: none;
+	color: #222;
+	font: bold normal 12px / 1.4 sans-serif;
+	text-transform: uppercase;
+	transition: .2s ease-in-out;
+}
+
+.navigation ul li a:hover {
+	cursor: pointer;
+	color: tomato;
+}
+
+
+.header-logo {
+	font: 700 normal 24px / 1 'Playfair Display';
+	color: #222;
+	width: 150px;
+}
+
+.header-cart {
+	text-align: right;
+	width: 150px;
+	color: #222;
+}
+
+.header-cart .cart-label {
+	margin-left: 10px;
+	color: #222;
+	font: bold normal 12px / 1.4 sans-serif;
+	text-transform: uppercase;
+	transition: .2s ease-in-out;
+}
+
+.header-cart .fa {
+	transition: .2s ease-in-out;
+}
+
+
+.header-cart .cart-counter {
+	color: #888;
+	margin-left: 5px;
+	font: bold normal 12px / 1.4 sans-serif;
+	text-transform: uppercase;
+	transition: .2s ease-in-out;
+}
+
+.header-cart:hover {
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.header-cart:hover .fa,
+.header-cart:hover .cart-counter,
+.header-cart:hover .cart-label {
+	color: tomato;
+}

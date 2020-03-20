@@ -1,0 +1,15 @@
+.book-list {
+	list-style: none;
+	padding: 0;
+}
+
+
+.book-list li {
+	border-bottom: 1px solid #f0f0f0;
+}
+
+
+.book-list li:last-child {
+	border: none;
+}
+

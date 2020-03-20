@@ -1,20 +1,28 @@
-import React, { Component } from "react";
-import Spinner from "../spinner";
-import ErrorBoundry from "../error-boundry";
-import { BookstoreServiceProvider } from "../bookstore-service-context";
+import React from "react";
+import Header from "../header";
+import { HomePage, CartPage } from "../pages";
+import { Switch, Route } from "react-router-dom";
 
-export default class App extends Component {
-
-	render() {
-		return (
-			<div className="restore">
-				<ErrorBoundry>
-					<BookstoreServiceProvider>
-						<Spinner />
-					</BookstoreServiceProvider>
-				</ErrorBoundry>
-			</div>
-		);
-	}
+const App = () => {
+  return (
+    <div className="restore">
+      <Header numItems={4} total={212}/>
+      <Switch>
+        <Route path="/" exact component={HomePage} />
+        <Route path="/cart" component={CartPage} />
+        <Route
+          render={() => {
+            return (
+              <div>
+                <h2>404 error</h2>
+                <p>We can't find that page in our library</p>
+              </div>
+            );
+          }}
+        />
+      </Switch>
+    </div>
+  );
 };
 
+export default App;
