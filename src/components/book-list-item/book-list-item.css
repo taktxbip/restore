@@ -17,3 +17,14 @@
 	font: bold normal 36px / 1 sans-serif;
 	margin-bottom: 10px;
 }
+
+.book-list-item-image {
+	max-width: 120px;
+	position: relative;
+}
+
+
+.book-list-item-image img {
+	width: 100%;
+	height: auto;
+}
